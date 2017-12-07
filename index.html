@@ -1,19 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <script
-    src="https://code.jquery.com/jquery-3.2.1.js"
-    integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
-    crossorigin="anonymous"></script>
-    
+    <!-- adding JQuery -->
+    <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+    <!-- adding bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+    <!-- link css file  -->
+    <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
+    <div class="container">
+        <br>
+        <div class="panel panel-success">
+            <!-- panel heading -->
+            <div class="panel-heading">Add an animal</div>
+            <!-- panel body -->
+            <div class="panel-body">
+                <!-- button div -->
+                <div id="button">
+                    <button type="button" class="btn btn-primary" data-animal="dogs">dogs</button>
+                    <button type="button" class="btn btn-primary" data-animal="cats">cats</button>
+                </div>
+                <br>
+                <!-- input div -->
+                <form id="animal-form">
+                    <input id="userInput" type="text" class="form-control" placeholder="Search to add a button">
+                    <br>
+                    <input class="btn btn-success" id="search" type="submit" value="Search">
+                </form>
+
+            </div>
+        </div>
+        <!-- image panel -->
+        <div class="panel panel-success">
+            <div class="panel-heading">Images</div>
+            <!-- image display div -->
+            <div id="image" class="panel-body"></div>
+        </div>
+    </div>
+
+
+
     <!-- Linking to our JavaScript file. -->
-    <script type="text/javascript" src="assets/javascript/app.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
 
 </body>
+
 </html>
