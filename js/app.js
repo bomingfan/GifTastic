@@ -30,14 +30,14 @@ function showImage(keyWord) {
                 newImg.attr("data-animate", response.data[i].images.fixed_width.url);
                 newImg.attr("data-state", "still");
                 newImg.attr("alt", keyWord + "image");
-                
+
                 // add rating and image to newDiv
                 newDiv.append("<p>Rating: " + response.data[i].rating + "</p>");
                 newDiv.prepend(newImg);
-                
+
                 // display image and rating
                 $("#image").append(newDiv);
-                
+
 
             }
         });
@@ -60,9 +60,16 @@ function makeButton(input) {
 $("#search").on("click", function (event) {
     //  Preventing the submit button from trying to submit the form
     event.preventDefault();
+    // getting search value from user input
     var animal = $("#userInput").val();
     showImage(animal);
     makeButton(animal);
+    //clear search field on click
+    $("#userInput").focus(function () {
+        if ($(this).val() !== '') {
+            $(this).val('');
+        }
+    });
 });
 
 
