@@ -2,8 +2,9 @@
 
 // make a giphy api key and create variables
 var apiKey = "cb29ZcymMTuZXtQxexw9GtY41MXTaXWH"
-// var animals = [dogs, cats];
 
+
+// create ajax call function to pull/show images
 function showImage(keyWord) {
     // creating variables grabing user input and queryURL
     // animal = $("#userInput").val();
@@ -20,7 +21,11 @@ function showImage(keyWord) {
              for (var i = 0; i < response.data.length; i++) {
                  // display a list of gifs
                  var newImg = $("<img>");
+                 // adding new attribute for later use 
                  newImg.attr("src", response.data[i].images.fixed_height_still.url);
+                 newImg.attr("data-still", response.data[i].images.fixed_height_still.url);
+                 newImg.attr("data-animate", response.data[i].images.fixed_height.url);
+                 newImg.attr("data-state", "still");
                  $("#image").append(newImg);
                  
              }
@@ -38,6 +43,8 @@ function showImage(keyWord) {
   }
 
 
+
+
 // targeting button id=search  
 $("#search").on("click", function (event) {
     //  Preventing the submit button from trying to submit the form
@@ -49,41 +56,37 @@ $("#search").on("click", function (event) {
 
 
 // targeting generated button
-// $("button").on("click", function () {  
-//     var dataAnimal = $(this).attr("data-animal");
-//     console.log(dataAnimal);
-//     showImage(dataAnimal);
-// });
-
+// targeting button by jqery won't work for the new buttons, has to scan the whole document
+// also needs the anonmous function for the showImage function because it includes a parameter. 
 
 $(document).on("click", "button", function(event) {
   showImage($(this).attr("data-animal"));
 });
 
-// finds giphy results based on text
-// from the user input 
-// function getGiphies(userInput) {
-
-    // if I do not have data-giphy use userInput
-    // var input = $(this).attr("data-giphy") || userInput;
-
-
-
-
-
-// }
-
-// make form to add new buttons
-
-// create variables arrays
-
-// create an ajax call
-
-// disect the object (title, rating, images)
-
-// display them to user
 
 // on click - animate gifs, second click, stop animate
+$(document).on("click", "img", function(event) {
 
+    // set variables state and grab the data-state attribute
+    var state = $(this).attr("data-state");
+    
+    // if state is still
+    if (state === "still") {
+    var animate = $(this).attr("data-animate");
+
+    // set src to animate url and change the state to animate
+    $(this).attr("src", animate);
+    $(this).attr("data-state", "animate");
+    }
+    else {
+    // otherwise (if state === anmiate)
+    var still = $(this).attr("data-still");
+    // set src to still url
+    $(this).attr("src", still);
+    $(this).attr("data-state", "still");
+    
+    }
+
+  });
 
 
