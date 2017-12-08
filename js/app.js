@@ -1,13 +1,10 @@
 
 
-// make a giphy api key and create variables
-var apiKey = "cb29ZcymMTuZXtQxexw9GtY41MXTaXWH"
-
-
 // create ajax call function to pull/show images
 function showImage(keyWord) {
     // creating variables grabing user input and queryURL
-    // animal = $("#userInput").val();
+    // make a giphy api key and create variables
+    var apiKey = "cb29ZcymMTuZXtQxexw9GtY41MXTaXWH"
 
     var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=" + apiKey + "&q=" + keyWord + "&limit=10&offset=0&lang=en";
 
