@@ -74,9 +74,10 @@ $("#search").on("click", function (event) {
 // targeting button by jqery won't work for the new buttons, has to scan the whole document
 // also needs the anonmous function for the showImage function because it includes a parameter. 
 
-$(document).on("click", "button", function (event) {
+$(document).on("click", "button", function () {
     showImage($(this).attr("data-animal"));
 });
+
 
 
 // on click - animate gifs, second click, stop animate
